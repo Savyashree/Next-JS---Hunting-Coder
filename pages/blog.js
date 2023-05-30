@@ -1,20 +1,9 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-export default function Blog() {
-  const [blogs, setBlogs] = useState([]);
-  useEffect(() => {
-    fetch(
-      'https://nextjs2dbeyj-ozio--3000--272d3407.local-credentialless.webcontainer.io/api/blogs'
-    )
-      .then((data) => {
-        return data.json();
-      })
-      .then((parsedData) => {
-        console.log(parsedData);
-        setBlogs(parsedData);
-      });
-  }, []);
+export default function Blog(props) {
+  console.log(props);
+  const [blogs, setBlogs] = useState(props.allBlogs);
   return (
     <div>
       {blogs.map((blog) => {
@@ -29,4 +18,13 @@ export default function Blog() {
       })}
     </div>
   );
+}
+
+export async function getServerSideProps() {
+  let data = await fetch(
+    'https://nextjs2dbeyj-ozio--3000--272d3407.local-credentialless.webcontainer.io/api/blogs'
+  );
+  let allBlogs = await data.json();
+  // Pass data to the page via props
+  return { props: { allBlogs } };
 }

@@ -6,9 +6,12 @@ export default function slug() {
   const { slug } = router.query;
 
   return (
+    // useEffect( ()=> {
+    //   fetch('')
+    // })
     <div className={styles.container}>
       <div>
-        <h1 className={styles.blogItem}>Title of the page </h1>
+        <h1 className={styles.blogItem}>Title of the page - {slug}</h1>
         <hr />
         <p className={styles.blogItem}>
           JavaScript (JS) is a lightweight, interpreted, or just-in-time

@@ -8,25 +8,6 @@ export default function Home() {
       <Head>
         <title>Create Next App</title>
       </Head>
-
-      <div>
-        <nav className={styles.mainNav}>
-          <ul>
-            <Link href="/">
-              <li>Home</li>
-            </Link>
-            <Link href="/about">
-              <li>About</li>
-            </Link>
-            <Link href="/blog">
-              <li>Blog</li>
-            </Link>
-            <Link href="/contact">
-              <li>Contact</li>
-            </Link>
-          </ul>
-        </nav>
-      </div>
       <div className={styles.mainHeader}>
         <h2 className={styles.title}>Hunting Coder</h2>
         <p className={styles.description}>
